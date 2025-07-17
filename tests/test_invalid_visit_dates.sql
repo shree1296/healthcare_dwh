@@ -1,0 +1,1 @@
+select * from {{ ref('stg_visits') }} where visit_date is null or visit_date > current_date

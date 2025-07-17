@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: healthcare_db
+    database: HEALTHCARE_DB
+    schema: RAW_DATA
+    quoting:
+      database: false
+      schema: false
+      identifier: true   # 👈 ensures "cities" is quoted
+    tables:
+      - name: cities
+      - name: visits
+      - name: patients
+      - name: providers
+      - name: procedures
+      - name: insurance
+      - name: departments
+      - name: diagnoses

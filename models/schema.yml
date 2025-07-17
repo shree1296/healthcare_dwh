@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_patients
+    columns:
+      - name: patient_id
+        tests:
+          - unique
+          - not_null
+          - positive_values
+      
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['M','F','Others']
+
+  - name: stg_cities
+    columns:
+      - name: CITY_ID
+        tests:
+          - not_null
+          - unique
+      - name: CITY_NAME
+        tests:
+          - test_nulls
+  - name: stg_visits
+    columns:
+      - name: TREATMENT_COST
+        tests:
+          - positive_values
+      - name: MEDICATION_COST
+        tests:
+          - positive_values
+      - name: discharge_date
+        tests:
+          - valid_date_range
+  - name: patients_snapshot
+    columns:
+      - name: gender
+        tests:
+          - valid_gender
+      
