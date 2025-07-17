@@ -1,0 +1,1 @@
+select * from {{ ref('stg_visits') }} where treatment_cost < 0 or medication_cost < 0
